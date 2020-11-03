@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import SEO from "~/components/SEO";
 import { Title } from "~/styles/pages/Home";
 
 interface IProduct {
@@ -12,13 +13,19 @@ interface HomeProps {
 
 export default function Home({ recommendedProducts }: HomeProps) {
   async function handleSum() {
-    const math = (await import('~/lib/math')).default
-    const sum = math.sum(2, 5)
-    console.log('sum: ', sum)
-  } 
+    const math = (await import("~/lib/math")).default;
+    const sum = math.sum(2, 5);
+    console.log("sum: ", sum);
+  }
 
   return (
     <div>
+      <SEO
+        title="DevCommerce, your best ecommerce"
+        image="boost.png"
+        shouldExcludeTitleSuffix
+      />
+
       <section>
         <Title>Products</Title>
 
